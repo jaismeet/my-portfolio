@@ -1,0 +1,45 @@
+.home { text-align: center; padding-top: 100px; }
+.home h1 { font-size: 42px; }
+.home span { color: #38bdf8; }
+
+.home-buttons {
+  margin-top: 15px;
+}
+
+.btn-outline {
+  padding: 10px 18px;
+  border-radius: 6px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+}
+
+.btn-outline:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.social-icons {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: #38bdf8;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+.social-icons a:nth-child(4):hover {
+  color: #25D366;
+}
