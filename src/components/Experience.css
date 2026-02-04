@@ -2,11 +2,12 @@
   max-width: fit-content;
   margin: 0 auto;
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:  #38bdf8;
+
 }
 
 .experience-title {
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;

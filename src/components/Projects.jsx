@@ -1,3 +1,4 @@
+import { FaGithub } from "react-icons/fa";
 import "./Projects.css";
 
 function Projects() {
@@ -8,7 +9,9 @@ function Projects() {
       <div className="projects-container">
 
         <div className="card">
-          <h3>Invoice Extraction System (AI + React)</h3>
+          <div className="project-header">
+            <h3>Invoice Extraction System (AI + React)</h3>
+          </div>
           <p>
             AI-powered system that extracts invoice details using OpenCV and NLP,
             with a React interface for reviewing structured data.
@@ -19,7 +22,12 @@ function Projects() {
         </div>
 
         <div className="card">
-          <h3>E-commerce Data Analysis</h3>
+          <div className="project-header">
+            <h3>E-commerce Data Analysis</h3>
+            <a href="https://github.com/jaismeet/Data-Analysis/blob/main/MySql%20Project.ipynb" target="_blank" rel="noreferrer">
+              <FaGithub />
+            </a>
+          </div>
           <p>
             Analyzed customer purchase data to identify trends and sales patterns,
             presenting insights through dashboards and visualizations.
@@ -30,7 +38,12 @@ function Projects() {
         </div>
 
         <div className="card">
-          <h3>Udemy Course Data Analysis</h3>
+          <div className="project-header">
+            <h3>Udemy Course Data Analysis</h3>
+            <a href="https://github.com/jaismeet/Data-Analysis/blob/main/Udemy_Python_Project.ipynb" target="_blank" rel="noreferrer">
+              <FaGithub />
+            </a>
+          </div>
           <p>
             Performed exploratory data analysis on course datasets to identify
             pricing and demand trends.

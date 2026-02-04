@@ -1,7 +1,7 @@
 #projects h2 {
   font-size: 32px;
   margin-bottom: 20px;
-  color: white;
+  color: #38bdf8;
   text-align: center;
 }
 
@@ -30,6 +30,27 @@
   font-size: 12px;
   margin-right: 5px;
 }
+
+/* Project title + GitHub icon row */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+/* GitHub icon */
+.project-header a {
+  color: #38bdf8;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.project-header a:hover {
+  color: white;
+  transform: scale(1.15);
+}
+
 
 @media (max-width: 992px) {
   .projects-container {
