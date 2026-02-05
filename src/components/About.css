@@ -17,11 +17,19 @@
   border-radius: 12px;
   max-width: fit-content;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.about-card:hover {
+  background: #334155;
+  transform: translateY(-5px);
+
+}
+
 
 .about-card p {
   margin-bottom: 18px;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: #cbd5e1;
 }
