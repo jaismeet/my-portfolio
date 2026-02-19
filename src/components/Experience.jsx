@@ -5,7 +5,7 @@ const experiences = [
   {
     position: "Intern",
     company: "Aargus Infotec",
-    duration: "July 2025 – Nov 2025",
+    duration: "July 2025 – Dec 2025",
     points: [
       "Worked on an AI-based Invoice Extraction System to extract key invoice details automatically",
       "Developed React.js interfaces to display and manage extracted invoice data",
