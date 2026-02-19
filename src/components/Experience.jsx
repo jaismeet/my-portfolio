@@ -3,7 +3,7 @@ import "./Experience.css";
 
 const experiences = [
   {
-    position: "Intern",
+    position: "Internship",
     company: "Aargus Infotec",
     duration: "July 2025 – Dec 2025",
     points: [
