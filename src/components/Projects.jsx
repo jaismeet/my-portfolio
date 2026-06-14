@@ -1,58 +1,81 @@
+import { useMemo, useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import { projectTabs, projects } from "../data/portfolio";
 import "./Projects.css";
 
-function Projects() {
+function ProjectVisual({ project }) {
   return (
-    <section id="projects">
-      <h2>Projects</h2>
+    <div className="project-visual">
+      <img src={project.image} alt={`${project.title} project preview`} loading="lazy" />
+    </div>
+  );
+}
+
+function Projects() {
+  const [activeTab, setActiveTab] = useState("All");
+
+  const filteredProjects = useMemo(() => {
+    if (activeTab === "All") {
+      return projects;
+    }
+
+    return projects.filter((project) => project.category === activeTab);
+  }, [activeTab]);
+
+  return (
+    <section id="projects" className="projects-section animate-slide-up">
+      <div className="section-heading projects-heading">
+        <div>
+          <p className="section-kicker">Projects</p>
+          <h2>Selected work across frontend, AI, and data analysis.</h2>
+        </div>
+        {/* <a className="all-projects-link" href="https://github.com/jaismeet" target="_blank" rel="noreferrer">
+          Main GitHub
+          <FaExternalLinkAlt />
+        </a> */}
+      </div>
+
+      <div className="project-tabs" role="tablist" aria-label="Project categories">
+        {projectTabs.map((tab) => (
+          <button
+            key={tab}
+            type="button"
+            className={activeTab === tab ? "active" : ""}
+            onClick={() => setActiveTab(tab)}
+            role="tab"
+            aria-selected={activeTab === tab}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
 
       <div className="projects-container">
-
-        <div className="card">
-          <div className="project-header">
-            <h3>Invoice Extraction System (AI + React)</h3>
-          </div>
-          <p>
-            AI-powered system that extracts invoice details using OpenCV and NLP,
-            with a React interface for reviewing structured data.
-          </p>
-          <div className="tags">
-            <span>Python</span><span>OpenCV</span><span>NLP</span><span>React</span>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="project-header">
-            <h3>E-commerce Data Analysis</h3>
-            <a href="https://github.com/jaismeet/Data-Analysis/blob/main/MySql%20Project.ipynb" target="_blank" rel="noreferrer">
-              <FaGithub />
-            </a>
-          </div>
-          <p>
-            Analyzed customer purchase data to identify trends and sales patterns,
-            presenting insights through dashboards and visualizations.
-          </p>
-          <div className="tags">
-            <span>Python</span><span>SQL</span><span>Visualization</span>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="project-header">
-            <h3>Udemy Course Data Analysis</h3>
-            <a href="https://github.com/jaismeet/Data-Analysis/blob/main/Udemy_Python_Project.ipynb" target="_blank" rel="noreferrer">
-              <FaGithub />
-            </a>
-          </div>
-          <p>
-            Performed exploratory data analysis on course datasets to identify
-            pricing and demand trends.
-          </p>
-          <div className="tags">
-            <span>Python</span><span>SQL</span><span>EDA</span>
-          </div>
-        </div>
-
+        {filteredProjects.map((project) => (
+          <article className="project-card" key={project.title}>
+            <ProjectVisual project={project} />
+            <div className="project-body">
+              <div className="project-title-row">
+                <span>{project.category}</span>
+                <a href={project.github} target="_blank" rel="noreferrer" aria-label={`${project.title} ${project.actionLabel}`}>
+                  <FaGithub />
+                </a>
+              </div>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="tags">
+                {project.tech.slice(0, 3).map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+                {project.tech.length > 3 && <span>+{project.tech.length - 3}</span>}
+              </div>
+              <a className="project-link" href={project.github} target="_blank" rel="noreferrer">
+                <FaGithub />
+                {project.actionLabel}
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
