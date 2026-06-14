@@ -1,30 +1,53 @@
+import { FaChartLine, FaCode, FaRobot } from "react-icons/fa";
 import "./About.css";
+
+const strengths = [
+  {
+    icon: <FaCode />,
+    title: "Frontend Engineering",
+    text: "React, Next.js, Tailwind CSS, dynamic routing, reusable components, and responsive UI delivery.",
+  },
+  {
+    icon: <FaRobot />,
+    title: "AI Workflows",
+    text: "LangChain, Gemini API, NLP, RAG concepts, semantic search, embeddings, and FastAPI integrations.",
+  },
+  {
+    icon: <FaChartLine />,
+    title: "Data Thinking",
+    text: "Python, SQL, Pandas, NumPy, EDA, dashboards, and insight extraction from structured datasets.",
+  },
+];
 
 function About() {
   return (
-    <section id="about" className="about-section">
-      <h2>About Me</h2>
+    <section id="about" className="about-section animate-slide-up">
+      <div className="section-heading">
+        <p className="section-kicker">About Me</p>
+        <h2>Software Developer building modern web apps, AI workflows, and data-driven solutions.</h2>
+      </div>
 
-      <div className="about-card">
-        <p>
-          I am a Computer Science graduate with a strong interest in 
-          <strong> Data Analytics</strong> and <strong> Frontend Development</strong>. 
-          I enjoy transforming data into meaningful insights and building modern web 
-          applications that make complex information easy to understand.
-        </p>
+      <div className="about-layout">
+        <div className="about-card">
+          <p>
+            Software Developer focused on building modern web applications, AI-powered workflows, and data-driven digital solutions.
 
-        <p>
-          My technical background includes <strong>Python, SQL, and Machine Learning</strong> 
-          for data analysis, along with <strong>React.js and JavaScript</strong> for developing 
-          responsive and user-friendly interfaces. I have worked on real-world systems such as an 
-          <strong> AI-based Invoice Extraction platform</strong>, where I combined data processing 
-          with frontend visualization.
-        </p>
+          </p>
+          <p>
+            My work spans deal platforms, AI invoice extraction screens, resume analyzers, chatbots, and EDA
+            notebooks using React, Tailwind CSS, Firebase, Python, SQL, LangChain, NLP, and FastAPI.
+          </p>
+        </div>
 
-        <p>
-          I am passionate about blending <strong>data intelligence with clean UI design</strong> 
-          to create practical, scalable solutions that support better decision-making.
-        </p>
+        <div className="strength-grid">
+          {strengths.map((item) => (
+            <article className="strength-card" key={item.title}>
+              <span>{item.icon}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
