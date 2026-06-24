@@ -9,18 +9,34 @@
 }
 
 .skill-category {
-  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 42%),
+    var(--surface);
+  min-height: 232px;
   padding: 22px;
   border-radius: 8px;
   border: 1px solid var(--border);
+  box-shadow: 0 16px 34px rgba(2, 6, 23, 0.16);
   text-align: left;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-category::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(34, 197, 94, 0.85));
+  opacity: 0.78;
 }
 
 .skill-category:hover {
   transform: translateY(-5px);
   background: var(--surface-light);
   border-color: rgba(56, 189, 248, 0.28);
+  box-shadow: 0 20px 44px rgba(2, 6, 23, 0.22);
 }
 
 .skill-heading {
@@ -38,7 +54,9 @@
   align-items: center;
   justify-content: center;
   color: var(--accent);
-  background: rgba(56, 189, 248, 0.12);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 .skill-heading h3 {
@@ -50,21 +68,35 @@
 .skill-icons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 }
 
 .skill-icons span {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   min-height: 34px;
-  background: var(--bg);
+  background: rgba(15, 23, 42, 0.72);
   color: var(--muted);
-  padding: 7px 11px;
+  padding: 7px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.13);
+  border: 1px solid rgba(148, 163, 184, 0.16);
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.skill-icons svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
+.skill-icons span:hover {
+  color: var(--text);
+  border-color: rgba(56, 189, 248, 0.32);
+  background: rgba(56, 189, 248, 0.1);
 }
 
 @media (max-width: 1100px) {
@@ -75,10 +107,24 @@
 
 @media (max-width: 640px) {
   .skills-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .skills-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .skill-category {
+    flex: 0 0 clamp(252px, 78vw, 318px);
+    min-height: 220px;
     padding: 20px;
+    scroll-snap-align: start;
   }
 }
