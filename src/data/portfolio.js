@@ -38,7 +38,7 @@ export const skills = [
   },
   {
     title: "Backend & Data",
-    items: ["Python", "SQL", "FastAPI", "Firebase", "REST APIs", "Pandas", "NumPy"],
+    items: ["Python", "SQL", "FastAPI", "REST APIs", "Pandas", "NumPy"],
   },
   {
     title: "AI & ML",
@@ -59,7 +59,7 @@ export const experiences = [
     points: [
       "Built responsive Next.js and React modules for deals, coupons, brands, stores, FAQ, feedback, smart deals, and blogs.",
       "Created reusable UI components including sliders, skeleton loaders, filters, modals, category views, and dynamic navigation.",
-      "Integrated Firebase data into deal, coupon, brand, upcoming deal, and personalized content sections.",
+      "Integrated dynamic data into deal, coupon, brand, upcoming deal, and personalized content sections.",
       "Supported personalization work involving user profiles, event data, recommendation signals, semantic search, embeddings, FAISS, and RAG concepts.",
     ],
   },

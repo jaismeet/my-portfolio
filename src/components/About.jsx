@@ -35,7 +35,7 @@ function About() {
           </p>
           <p>
             My work spans deal platforms, AI invoice extraction screens, resume analyzers, chatbots, and EDA
-            notebooks using React, Tailwind CSS, Firebase, Python, SQL, LangChain, NLP, and FastAPI.
+            notebooks using React, Tailwind CSS, Python, SQL, LangChain, NLP, and FastAPI.
           </p>
         </div>
 

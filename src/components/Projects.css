@@ -30,12 +30,23 @@
 
 .project-tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10px;
+  overflow-x: auto;
   margin-bottom: 26px;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-tabs::-webkit-scrollbar,
+.projects-container::-webkit-scrollbar {
+  display: none;
 }
 
 .project-tabs button {
+  flex: 0 0 auto;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
@@ -64,6 +75,8 @@
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -102,6 +115,9 @@
 }
 
 .project-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 14px;
 }
 
@@ -180,6 +196,7 @@
   border-radius: 8px;
   padding: 10px 12px;
   cursor: pointer;
+  margin-top: auto;
 }
 
 .project-link:hover {
@@ -204,32 +221,84 @@
   }
 
   .projects-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .project-card {
+    flex: 0 0 100%;
+    max-width: 340px;
+    scroll-snap-align: start;
   }
 
   .project-visual {
-    height: clamp(198px, 58vw, 260px);
+    height: clamp(132px, 38vw, 168px);
+  }
+
+  .project-body {
+    padding: 11px;
+  }
+
+  .project-title-row {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .project-card h3 {
+    font-size: 15.5px;
+    margin-bottom: 7px;
+    min-height: 42px;
+  }
+
+  .project-card p {
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .project-card p {
     min-height: auto;
   }
+
+  .tags {
+    gap: 6px;
+    margin: 12px 0;
+  }
+
+  .tags span {
+    padding: 4px 7px;
+    font-size: 11px;
+  }
+
+  .project-link {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {
   .project-tabs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    margin-right: -5vw;
+    padding-right: 5vw;
   }
 
-  .project-tabs button,
+  .project-card {
+    max-width: none;
+  }
+
   .all-projects-link,
   .project-link {
     width: 100%;
   }
 
   .project-card p {
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
